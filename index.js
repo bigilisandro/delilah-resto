@@ -10,6 +10,10 @@ require('./db.config')
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
 
+app.get("/api", (req, res) => {
+    res.send("Welcome to the REST API of Delilah Resto.");
+  });
+
 app.use('/api', apiRouter)
 
 // settings
@@ -17,5 +21,5 @@ app.use('/api', apiRouter)
 app.set('port', process.env.PORT || 3000 );
 
 app.listen(app.get('port'), () => {
-    console.log('Servidor inicializaod en puerto', app.get('port'));
+    console.log('Servidor inicializado en puerto', app.get('port'));
 });

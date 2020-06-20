@@ -1,6 +1,7 @@
 const jwt = require('jwt-simple');
 const moment = require('moment');
 
+// Middelware para checkear el User Token generado al logearse.
 const checkToken = (req, res, next) => {
 
     if(!req.headers['user-token']) {
@@ -25,6 +26,7 @@ const checkToken = (req, res, next) => {
     next();
 }
 
+// Middelware para checkear el rol del usuario
 const isAdmin = (req, res, next) => {
     const role = req.body.role
     if(!role) {
